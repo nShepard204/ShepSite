@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import styled from "styled-components";
-import { css } from "@emotion/react";
 
 export default function HomeImage() {
   return (

@@ -5,6 +5,7 @@ import HomeImage from "./ui/home-img";
 import { type Variants, motion } from "framer-motion";
 import { css } from "@emotion/react";
 import { useTheme } from "@mui/material/styles";
+import NavBar from "./ui/navbar";
 
 export default function Home() {
   const theme = useTheme();
@@ -15,51 +16,68 @@ export default function Home() {
     temp: {
       opacity: 1,
       transition: {
-        duration: 2,
-        staggerChildren: 1,
+        duration: 2.5,
+        delayChildren: 0.3,
+        staggerChildren: 0.3,
       },
     },
   };
 
   return (
-    <Container
-      maxWidth="md"
-      css={css`
-        padding: 2rem;
-      `}
-      disableGutters
-    >
-      <ContentWrapper variants={introAnimation} initial="init" animate="temp">
-        <HomeImage />
-        <motion.div variants={introAnimation}>
-          <Typography
-            variant={theme.breakpoints.up("md") ? "h3" : "h2"}
+    <>
+      <NavBar />
+      <Container
+        maxWidth="md"
+        css={css`
+          padding: 2.5rem;
+          overflow: hidden;
+        `}
+        disableGutters
+      >
+        <ContentWrapper variants={introAnimation} initial="init" animate="temp">
+          <HomeImage />
+          <IntroTextWrapper
+            variants={introAnimation}
             css={css`
-              text-align: center;
+              display: flex;
+              height: fit-content;
             `}
           >
-            Hello! I&apos;m Nic Shepard, but you can call me Shep.
-          </Typography>
-        </motion.div>
-
-        <Typography
-          variant="h5"
-          fontWeight={300}
-          css={css`
-            text-align: center;
-          `}
-        >
-          I&apos;m a new software engineer focusing on full stack development
-          and expanding my horizons
-        </Typography>
-        <Button variant="outlined">About Me</Button>
-      </ContentWrapper>
-    </Container>
+            <Typography
+              variant={theme.breakpoints.up("md") ? "h3" : "h2"}
+              css={css`
+                text-align: center;
+              `}
+            >
+              Hello! I&apos;m Nic Shepard, but you can call me Shep.
+            </Typography>
+          </IntroTextWrapper>
+          <motion.div variants={introAnimation}>
+            <Typography
+              variant="h5"
+              fontWeight={300}
+              css={css`
+                text-align: center;
+              `}
+            >
+              I&apos;m a new software engineer focusing on full stack
+              development and expanding my horizons
+            </Typography>
+          </motion.div>
+          <Button variant="outlined">About Me</Button>
+        </ContentWrapper>
+      </Container>
+    </>
   );
 }
 
 const ContentWrapper = styled(motion.div)`
   display: grid;
-  grid-template-rows: 1fr 1fr auto;
-  row-gap: 2rem;
+  grid-template-rows: 1fr auto auto;
+  row-gap: 2.5rem;
+`;
+
+const IntroTextWrapper = styled(motion.div)`
+  display: flex;
+  height: fit-content;
 `;
