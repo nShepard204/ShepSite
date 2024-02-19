@@ -12,10 +12,10 @@ export default function NavBar() {
         <ShepLink href="/">
           <MdHome size="2.5rem" color="white" />
         </ShepLink>
-        <ShepLink href="https://github.com/nShepard204">
+        <ShepLink href="https://github.com/nShepard204" openInNewTab>
           <FaGithub size="2rem" color="white" />
         </ShepLink>
-        <ShepLink href="https://www.linkedin.com/in/nicshepard/">
+        <ShepLink href="https://www.linkedin.com/in/nicshepard/" openInNewTab>
           <FaLinkedin size="2rem" color="white" />
         </ShepLink>
       </IconLinksWrapper>

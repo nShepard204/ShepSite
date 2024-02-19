@@ -64,9 +64,26 @@ export default function Home() {
               development and expanding my horizons
             </Typography>
           </motion.div>
-          <Button variant="outlined">About Me</Button>
+          <Button
+            variant="outlined"
+            onClick={() => {
+              document
+                .getElementById("scroll-toer")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            About Me
+          </Button>
         </ContentWrapper>
       </Container>
+      <div
+        css={css`
+          margin-top: 2500px;
+        `}
+      ></div>
+      <div id="scroll-toer">
+        And here&apos;s where Im testing scroll to view!
+      </div>
     </>
   );
 }
